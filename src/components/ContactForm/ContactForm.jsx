@@ -14,21 +14,27 @@ export class ContactForm extends Component {
     this.setState(prevState => ({
       ...prevState,
       [name]: value,
-      id,
+      // id, // wersja 1 - działa, ale githubPages pokazuje pustą stronę
     }));
     console.log('handleChange', e.target.value);
     console.log('id', id);
     console.log('idNanoid', this.idNanoid);
   };
 
+  // wersja 1 - działa, ale githubPages pokazuje pustą stronę
+  // handleSubmit = e => {
+  //   e.preventDefault();
+  //   this.idNanoid = nanoid();
+  //   this.props.addContact(this.state);
+  //   console.log(`Dane zostały wysłane ${JSON.stringify(this.state)}`);
+  //   this.setState({ name: '', number: '' });
+  // };
+
+  // wersja 2 - działa
   handleSubmit = e => {
     e.preventDefault();
-    // alert(`Dane zostały wysłane ${JSON.stringify(this.state)}`);
-    //
-    // idNanoid = nanoid();
-    //this.idNanoid = e.target.id;
     this.idNanoid = nanoid();
-    this.props.addContact(this.state);
+    this.props.addContact({ ...this.state, id: this.idNanoid });
     console.log(`Dane zostały wysłane ${JSON.stringify(this.state)}`);
     this.setState({ name: '', number: '' });
   };

@@ -3,11 +3,11 @@ import PropTypes from 'prop-types';
 import { nanoid } from 'nanoid';
 import css from './ContactForm.module.css';
 export class ContactForm extends Component {
-  idNanoid = nanoid();
   state = {
     name: '',
     number: '',
   };
+  idNanoid = nanoid();
 
   handleChange = e => {
     const { id, name, value } = e.target;
@@ -17,12 +17,17 @@ export class ContactForm extends Component {
       id,
     }));
     console.log('handleChange', e.target.value);
+    console.log('id', id);
+    console.log('idNanoid', this.idNanoid);
   };
 
   handleSubmit = e => {
     e.preventDefault();
     // alert(`Dane zostały wysłane ${JSON.stringify(this.state)}`);
     //
+    // idNanoid = nanoid();
+    //this.idNanoid = e.target.id;
+    this.idNanoid = nanoid();
     this.props.addContact(this.state);
     console.log(`Dane zostały wysłane ${JSON.stringify(this.state)}`);
     this.setState({ name: '', number: '' });

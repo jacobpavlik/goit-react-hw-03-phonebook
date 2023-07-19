@@ -30,16 +30,17 @@ export class App extends Component {
     console.log('Dodajemy nasz kontakt', this.state.contacts);
   };
 
-  deleteContact = id => {
-    console.log('Usuwanie kontaktu', id);
+  deleteContact = index => {
+    console.log('Usuwanie kontaktu', index);
     this.setState(prevState => {
       const updateContacts = [...prevState.contacts];
-      updateContacts.splice(id, 1);
+      updateContacts.splice(index, 1);
       return { contacts: updateContacts };
     });
   };
   componentDidMount() {
     const localStorageContacts = localStorage.getItem('contacts');
+    console.log(localStorageContacts);
     this.setState({
       contacts: JSON.parse(localStorageContacts),
     });

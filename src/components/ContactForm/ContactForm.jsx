@@ -16,9 +16,9 @@ export class ContactForm extends Component {
       [name]: value,
       // id, // wersja 1 - działa, ale githubPages pokazuje pustą stronę
     }));
-    console.log('handleChange', e.target.value);
+    //  console.log('handleChange', e.target.value);
     console.log('id', id);
-    console.log('idNanoid', this.idNanoid);
+    //  console.log('idNanoid', this.idNanoid);
   };
 
   // wersja 1 - działa, ale githubPages pokazuje pustą stronę

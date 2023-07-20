@@ -5,7 +5,7 @@ import css from './ContactList.module.css';
 export class ContactList extends Component {
   render() {
     const { contacts, deleteContact, filter } = this.props;
-    console.log('contacts i filter', contacts, filter);
+    console.log('contacts.length', contacts.length);
     if (contacts.length === 0) {
       return <p className={css.info}>Contacts list is empty</p>;
     } else {
